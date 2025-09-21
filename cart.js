@@ -8,9 +8,9 @@ function renderCart() {
         const li = document.createElement('li');
         li.innerHTML = `
       ${item.product.title} - $${item.product.price} x ${item.qty} = $${item.qty * item.product.price}
-      <button class="inc-btn" data-index="${i}">+</button>
-      <button class="dec-btn" data-index="${i}">-</button>
-      <button class="del-btn" data-index="${i}">Eliminar</button>
+    <button class="inc-btn" data-index="${i}">+</button>
+    <button class="dec-btn" data-index="${i}">-</button>
+    <button class="del-btn" data-index="${i}">Eliminar</button>
     `;
         cartItemsUl.appendChild(li);
     });

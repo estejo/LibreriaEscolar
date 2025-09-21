@@ -12,7 +12,7 @@ class Product {
   }
 }
 
-// Render productos en la página
+
 function renderProducts(list) {
   const container = document.getElementById('products');
   container.innerHTML = '';

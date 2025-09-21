@@ -47,9 +47,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Empuja botones abajo */
     min-height: 350px;
-    /* Altura mínima uniforme */
 }
 
 .card .actions {
