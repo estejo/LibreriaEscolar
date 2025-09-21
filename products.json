@@ -1,0 +1,7 @@
+[
+  {"id":1,"title":"Mochila escolar","category":"Útiles","price":35000,"img":"./img/mochila.PNG"},
+  {"id":2,"title":"Cuaderno A4 (x10)","category":"Útiles","price":12000,"img":"./img/cuaderno A4.PNG"},
+  {"id":3,"title":"Auriculares","category":"Tecnología","price":38500,"img":"./img/auriculares.PNG"},
+  {"id":4,"title":"Mouse inalámbrico","category":"Tecnología","price":14000,"img":"./img/mouse.PNG"},
+  {"id":5,"title":"Pelota de fútbol","category":"Deporte","price":27000,"img":"./img/pelota.PNG"}
+]

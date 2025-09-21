@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Librería Escolar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <h1>Librería Escolar</h1>
+    <div id="cart-info">
+      <button id="view-cart-btn">Ver carrito (<span id="cart-count">0</span>)</button>
+      <button id="clear-cart-btn">Vaciar carrito</button>
+    </div>
+  </header>
+  <main>
+    <section id="filters">
+      <input id="search-input" placeholder="Buscar producto...">
+      <select id="category-filter">
+        <option value="all">Todas las categorías</option>
+      </select>
+      <button id="reload-btn">Recargar productos</button>
+    </section>
+    <section id="products" aria-live="polite"></section>
+    <section id="cart" class="hidden">
+  <h2>Carrito</h2>
+  <ul id="cart-items"></ul>
+  <p>Total: $<span id="cart-total">0</span></p>
+  <button id="close-cart">Cerrar carrito</button>
+</section>
+    <section id="cart" class="hidden">
+  <h2>Carrito</h2>
+  <ul id="cart-items"></ul>
+  <p>Total: $<span id="cart-total">0</span></p>
+  <button id="close-cart">Cerrar carrito</button>
+</section>
+    <section id="checkout" class="hidden">
+      <h2>Checkout - Datos de compra</h2>
+      <form id="checkout-form">
+        <label>Nombre completo <input id="cust-name" required></label>
+        <label>Email <input id="cust-email" type="email" required></label>
+        <label>Dirección <input id="cust-address" required></label>
+        <button type="submit">Confirmar compra</button>
+        <button type="button" id="cancel-checkout">Cancelar</button>
+      </form>
+    </section>
+  </main>
+  <footer><small>Librería Escolar</small></footer>
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
