@@ -40,7 +40,7 @@ function renderProducts(list) {
 // Función para cargar productos desde JSON
 async function loadProducts() {
   try {
-    const res = await fetch('products.json');
+    const res = await fetch('./products.json');
     const data = await res.json();
     products = data.map(d => new Product(d));
     renderProducts(products);
