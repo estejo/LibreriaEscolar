@@ -4,17 +4,27 @@ function renderCart() {
     const cartTotal = document.getElementById('cart-total');
 
     cartItemsUl.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartItemsUl.innerHTML = '<li>El carrito está vacío</li>';
+        cartTotal.textContent = '0';
+        return;
+    }
+
     cart.forEach((item, i) => {
         const li = document.createElement('li');
         li.innerHTML = `
-    <img src="./img/${item.product.img}" alt="${item.product.title}" class="cart-thumb">
-  ${item.product.title} - $${item.product.price} x ${item.qty} = $${item.qty * item.product.price}
-`;
+      ${item.product.title} - $${item.product.price} x ${item.qty} = $${item.qty * item.product.price}
+      <button class="inc-btn" data-index="${i}">+</button>
+      <button class="dec-btn" data-index="${i}">-</button>
+      <button class="del-btn" data-index="${i}">Eliminar</button>
+    `;
         cartItemsUl.appendChild(li);
     });
 
     cartTotal.textContent = cart.reduce((a, c) => a + c.qty * c.product.price, 0);
 
+    // Eventos de botones
     document.querySelectorAll('.inc-btn').forEach(btn => {
         btn.addEventListener('click', () => changeQty(Number(btn.dataset.index), 1));
     });
@@ -26,6 +36,7 @@ function renderCart() {
     });
 }
 
+// Cambiar cantidad de un producto
 function changeQty(index, delta) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart[index].qty += delta;
@@ -34,6 +45,7 @@ function changeQty(index, delta) {
     renderCart();
 }
 
+// Eliminar producto del carrito
 function removeItem(index) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
@@ -41,10 +53,7 @@ function removeItem(index) {
     renderCart();
 }
 
+// Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', renderCart);
 
-document.addEventListener('DOMContentLoaded', () => {
-    cconsole.log(JSON.parse(localStorage.getItem('cart')));
-    renderCart();
-});
 
