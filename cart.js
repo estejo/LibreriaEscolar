@@ -7,11 +7,9 @@ function renderCart() {
     cart.forEach((item, i) => {
         const li = document.createElement('li');
         li.innerHTML = `
-      ${item.product.title} - $${item.product.price} x ${item.qty} = $${item.qty * item.product.price}
-    <button class="inc-btn" data-index="${i}">+</button>
-    <button class="dec-btn" data-index="${i}">-</button>
-    <button class="del-btn" data-index="${i}">Eliminar</button>
-    `;
+    <img src="${item.product.img}" alt="${item.product.title}" class="cart-thumb">
+  ${item.product.title} - $${item.product.price} x ${item.qty} = $${item.qty * item.product.price}
+`;
         cartItemsUl.appendChild(li);
     });
 
