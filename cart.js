@@ -1,3 +1,4 @@
+// Función para renderizar el carrito
 function renderCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartItemsUl = document.getElementById('cart-items');
@@ -19,12 +20,14 @@ function renderCart() {
       <button class="dec-btn" data-index="${i}">-</button>
       <button class="del-btn" data-index="${i}">Eliminar</button>
     `;
+        li.style.marginBottom = '8px'; // opcional: separación entre items
         cartItemsUl.appendChild(li);
     });
 
+    // Actualizar total
     cartTotal.textContent = cart.reduce((a, c) => a + c.qty * c.product.price, 0);
 
-    // Eventos de botones
+    // Eventos de los botones
     document.querySelectorAll('.inc-btn').forEach(btn => {
         btn.addEventListener('click', () => changeQty(Number(btn.dataset.index), 1));
     });
@@ -36,7 +39,7 @@ function renderCart() {
     });
 }
 
-// Cambiar cantidad de un producto
+// Función para cambiar cantidad
 function changeQty(index, delta) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart[index].qty += delta;
@@ -45,7 +48,7 @@ function changeQty(index, delta) {
     renderCart();
 }
 
-// Eliminar producto del carrito
+// Función para eliminar producto
 function removeItem(index) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
