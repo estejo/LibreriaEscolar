@@ -7,7 +7,7 @@ function renderCart() {
     cart.forEach((item, i) => {
         const li = document.createElement('li');
         li.innerHTML = `
-    <img src="${item.product.img}" alt="${item.product.title}" class="cart-thumb">
+    <img src="./img/${item.product.img}" alt="${item.product.title}" class="cart-thumb">
   ${item.product.title} - $${item.product.price} x ${item.qty} = $${item.qty * item.product.price}
 `;
         cartItemsUl.appendChild(li);
@@ -42,3 +42,9 @@ function removeItem(index) {
 }
 
 document.addEventListener('DOMContentLoaded', renderCart);
+
+document.addEventListener('DOMContentLoaded', () => {
+    cconsole.log(JSON.parse(localStorage.getItem('cart')));
+    renderCart();
+});
+
